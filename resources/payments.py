@@ -6,7 +6,6 @@ from common.parsers import payment_parser
 
 import requests, datetime
 
-
 class Payments(Resource):
     def __init__(self, **kwargs):
         self.mongo = kwargs['mongo'].db
