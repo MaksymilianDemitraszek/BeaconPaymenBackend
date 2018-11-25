@@ -3,6 +3,7 @@ from resources.login import Login
 from resources.card import Card
 from resources.beacon import Beacon
 from resources.checkout import Checkout
+from resources.payments import Payments
 
 
 from flask import Flask
@@ -27,8 +28,11 @@ api.add_resource(Card, '/cards/add_card', resource_class_kwargs={'mongo': mongo}
 
 
 api.add_resource(Beacon, '/beacon', resource_class_kwargs={'mongo': mongo})
-api.add_resource(Checkout, '/checkout/<ObjectId:beacon_id>',
+api.add_resource(Checkout, '/checkout/<ObjectId:beacon_token>',
                  resource_class_kwargs={'mongo': mongo})
+
+api.add_resource(Payments, '/payment', resource_class_kwargs={'mongo': mongo})
+
 
 
 

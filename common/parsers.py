@@ -27,3 +27,5 @@ checkout_parser.add_argument('value', type=float)
 checkout_parser_seller = checkout_parser.copy()
 checkout_parser_seller.add_argument('token', location='headers')
 
+payment_parser = card_parser.copy()
+payment_parser.add_argument('beacon_token')

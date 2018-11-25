@@ -21,20 +21,16 @@ cvc  <br />
 
 GET /beacon #returns all seller beacons requires token header
 
-POST /beacon # requires token header
+POST /beacon # requires token header <br />
 beacon_id <br />
 beacon_token <br />
 
 GET /checkout/<ObjectId:beacon_id> <br />
-# returns data about single beacon and checkout <br />
+ returns data about single beacon and checkout assigned to id\t<br />
 
 POST /checkout/<ObjectId:beacon_id> #requires token header <br />
 value <br />
-#updates checkout to this value
-
-
-
-
+updates checkout to this value
 
 
 
