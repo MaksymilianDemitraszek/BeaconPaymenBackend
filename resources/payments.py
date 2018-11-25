@@ -29,7 +29,7 @@ class Payments(Resource):
             'value': beacon['value']
         }
         self.mongo.Cards.update({'cardNumber': args['cardNumber']}, {'$push': {'history': card_history}})
-        self.mongo.Beacons.update({'beacon_token': args['beacon_token']}, {'value': 0.0})
+        self.mongo.Beacons.update({'beacon_token': args['beacon_token']}, {'value': 0.0, 'beacon_token': args['beacon_token']})
         return 200
 
 
