@@ -24,7 +24,7 @@ beacon_parser_seller = beacon_parser.copy()
 beacon_parser_seller.add_argument('token', location='headers')
 
 checkout_parser = reqparse.RequestParser()
-checkout_parser.add_argument('value', type=float)
+checkout_parser.add_argument('value')
 
 checkout_parser_seller = checkout_parser.copy()
 checkout_parser_seller.add_argument('token', location='headers')
