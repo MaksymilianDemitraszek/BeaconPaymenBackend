@@ -33,7 +33,7 @@ api.add_resource(CardHistory, '/cards/<number>', resource_class_kwargs={'mongo':
 
 
 api.add_resource(Beacon, '/beacon', resource_class_kwargs={'mongo': mongo})
-api.add_resource(Checkout, '/checkout/<ObjectId:beacon_token>',
+api.add_resource(Checkout, '/checkout/<beacon_token>',
                  resource_class_kwargs={'mongo': mongo})
 
 api.add_resource(Payments, '/payment', resource_class_kwargs={'mongo': mongo})
