@@ -16,7 +16,7 @@ class Card(Resource):
         self.mongo.Cards.insert_one(args)
         return 203
 
-class History(Resource):
+class CardHistory(Resource):
     def __init__(self, **kwargs):
         self.mongo = kwargs['mongo'].db
 

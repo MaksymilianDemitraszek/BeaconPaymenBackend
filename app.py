@@ -1,6 +1,6 @@
 from resources.account import Seller, SellerCard, History
 from resources.login import Login
-from resources.card import Card
+from resources.card import Card, CardHistory
 from resources.beacon import Beacon
 from resources.checkout import Checkout
 from resources.payments import Payments
@@ -29,7 +29,7 @@ api.add_resource(Login, '/seller/login',  resource_class_kwargs={'mongo': mongo}
 api.add_resource(History, '/seller/history',  resource_class_kwargs={'mongo': mongo})
 
 api.add_resource(Card, '/cards/add_card', resource_class_kwargs={'mongo': mongo})
-api.add_resource(History, '/cards/<number>', resource_class_kwargs={'mongo': mongo})
+api.add_resource(CardHistory, '/cards/<number>', resource_class_kwargs={'mongo': mongo})
 
 
 api.add_resource(Beacon, '/beacon', resource_class_kwargs={'mongo': mongo})

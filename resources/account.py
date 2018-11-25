@@ -34,6 +34,9 @@ class SellerCard(Resource):
             return 403
 
 class History(Resource):
+    def __init__(self, **kwargs):
+        self.mongo = kwargs['mongo'].db
+
     def get(self):
         args = token_parser.parse_args()
         tok_val = TokenValidator(args['token'], self.mongo)
