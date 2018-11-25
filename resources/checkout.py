@@ -21,7 +21,7 @@ class Checkout(Resource):
             return 200
 
     def get(self, beacon_token):
-        beacon = self.mongo.Beacons.find_one_or_404({'beacon_token': beacon_token}, {'_id': 0})
+        beacon = self.mongo.Beacons.find_one_or_404({'beacon_token': beacon_token}, {'_id': 0, 'seller': 0})
         return beacon, 200
 
 
