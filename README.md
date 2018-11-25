@@ -25,15 +25,15 @@ POST /beacon # requires token header <br />
 beacon_id <br />
 beacon_token <br />
 
-GET /checkout/<ObjectId:beacon_id> <br />
+GET /checkout/<beacon_token> <br />
  returns data about single beacon and checkout assigned to id\t<br />
 
-POST /checkout/<ObjectId:beacon_id> #requires token header <br />
+POST /checkout/<beacon_token> #requires token header <br />
 value <br />
 updates checkout to this value
 
 
+GET /seller/history #requires token header <br />
 
-api.add_resource(Beacon, '/beacon', resource_class_kwargs={'mongo': mongo})
-api.add_resource(Checkout, '/checkout/<ObjectId:beacon_id>',
-                 resource_class_kwargs={'mongo': mongo})
+GET /cards/<number> <br />
+return card history 
