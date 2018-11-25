@@ -1,7 +1,7 @@
 from flask_restful import reqparse, Resource
-from Visa.common.parsers import checkout_parser
+from common.parsers import checkout_parser
 # from python_shared.validators import beacon
-from Visa.common.token import TokenValidator
+from common.token import TokenValidator
 
 import requests
 

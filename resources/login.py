@@ -1,5 +1,5 @@
 from flask_restful import reqparse, Resource
-from Visa.common.parsers import seller_parser
+from common.parsers import seller_parser
 import random, string
 # from python_shared.validators import beacon
 

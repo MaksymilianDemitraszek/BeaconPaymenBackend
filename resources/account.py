@@ -1,8 +1,7 @@
 from flask_restful import reqparse, Resource
-from Visa.common.parsers import seller_parser, seller_card_parser
-from Visa.common.validators import validate_seller, validate_card
-from Visa.common.token import TokenValidator
-
+from common.parsers import seller_parser, seller_card_parser
+from common.validators import validate_seller, validate_card
+from common.token import TokenValidator
 
 class Seller(Resource):
     def __init__(self, **kwargs):

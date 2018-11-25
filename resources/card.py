@@ -1,6 +1,6 @@
 from flask_restful import reqparse, Resource
-from Visa.common.parsers import card_parser
-from Visa.common.validators import validate_card
+from common.parsers import card_parser
+from common.validators import validate_card
 
 class Card(Resource):
     def __init__(self, **kwargs):
