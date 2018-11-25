@@ -1,4 +1,4 @@
-from resources.account import Seller, SellerCard
+from resources.account import Seller, SellerCard, History
 from resources.login import Login
 from resources.card import Card
 from resources.beacon import Beacon
@@ -26,8 +26,10 @@ mongo = PyMongo(app)
 api.add_resource(Seller, '/seller/register', resource_class_kwargs={'mongo': mongo})
 api.add_resource(SellerCard, '/seller/add_card', resource_class_kwargs={'mongo': mongo}) #requires token header
 api.add_resource(Login, '/seller/login',  resource_class_kwargs={'mongo': mongo})
+api.add_resource(History, '/seller/history',  resource_class_kwargs={'mongo': mongo})
 
 api.add_resource(Card, '/cards/add_card', resource_class_kwargs={'mongo': mongo})
+api.add_resource(History, '/cards/<number>', resource_class_kwargs={'mongo': mongo})
 
 
 api.add_resource(Beacon, '/beacon', resource_class_kwargs={'mongo': mongo})

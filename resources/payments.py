@@ -4,7 +4,7 @@ from flask_restful import reqparse, Resource
 # from common.token import TokenValidator
 from common.parsers import payment_parser
 
-import requests
+import requests, datetime
 
 
 class Payments(Resource):
@@ -22,8 +22,16 @@ class Payments(Resource):
             'value': beacon['value'],
         }
         resp = requests.post('http://localhost:3000/payment', data=payload) #NOT SURE IT WORKS !!!!
-        print(resp)
-        return resp.json(), 200
+        history_dict = resp.json()
+        history_dict['cardNumber'] = args['cardNumber']
+        history_dict['value'] = beacon['value']
+        self.mongo.Sellers.update({'_id': beacon['seller']}, {'$push': {'history': history_dict}})
+        card_history = {
+            'timestamp': datetime.datetime.now(),
+            'value': beacon['value']
+        }
+        self.mongo.Cards.update({'cardNumber': args['cardNumber']}, {'$push': {'history': card_history}})
+        return 200
 
 
 

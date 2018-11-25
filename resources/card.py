@@ -16,6 +16,13 @@ class Card(Resource):
         self.mongo.Cards.insert_one(args)
         return 203
 
+class History(Resource):
+    def __init__(self, **kwargs):
+        self.mongo = kwargs['mongo'].db
+
+    def get(self, number):
+        card = self.mongo.Cards.find_one({'cardNumber': number})
+        return card['history'], 200
 
 
 

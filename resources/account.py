@@ -1,5 +1,5 @@
 from flask_restful import reqparse, Resource
-from common.parsers import seller_parser, seller_card_parser
+from common.parsers import seller_parser, seller_card_parser, token_parser
 from common.validators import validate_seller, validate_card
 from common.token import TokenValidator
 
@@ -32,3 +32,10 @@ class SellerCard(Resource):
             return 200
         else:
             return 403
+
+class History(Resource):
+    def get(self):
+        args = token_parser.parse_args()
+        tok_val = TokenValidator(args['token'], self.mongo)
+        if tok_val.is_valid():
+            return tok_val.user['history'], 200

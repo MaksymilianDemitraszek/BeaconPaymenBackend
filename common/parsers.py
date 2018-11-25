@@ -1,5 +1,7 @@
 from flask_restful import reqparse, Resource
 
+token_parser = reqparse.RequestParser()
+token_parser.add_argument('token', location='headers')
 
 card_parser = reqparse.RequestParser()
 card_parser.add_argument('cardNumber', required=True)
