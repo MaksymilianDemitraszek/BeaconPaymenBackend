@@ -1,5 +1,5 @@
 from flask_restful import reqparse, Resource
-from common.parsers import beacon_parser_seller
+from common.parsers import beacon_parser_seller, token_parser
 # from python_shared.validators import beacon
 from common.token import TokenValidator
 from bson.json_util import dumps
@@ -21,7 +21,7 @@ class Beacon(Resource):
             return 403
 
     def get(self):
-        args = beacon_parser_seller.parse_args()
+        args = token_parser.parse_args()
         token = TokenValidator(args['token'], self.mongo)
         if token.is_valid():
             del args['token']

@@ -14,7 +14,6 @@ class Payments(Resource):
     def post(self):
         args = payment_parser.parse_args()
         beacon = self.mongo.Beacons.find_one_or_404({'beacon_token': args['beacon_token']})
-        del args['beacon_token']
         seller = self.mongo.Sellers.find_one({'_id': beacon['seller']})
         payload = {
             'cardNumber': args['cardNumber'],
@@ -31,6 +30,7 @@ class Payments(Resource):
             'value': beacon['value']
         }
         self.mongo.Cards.update({'cardNumber': args['cardNumber']}, {'$push': {'history': card_history}})
+        self.mongo.Beacons.update({'beacon_token': args['beacon_token']}, {'value': 0.0})
         return 200
 
 
