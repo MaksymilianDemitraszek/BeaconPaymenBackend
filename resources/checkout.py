@@ -18,6 +18,7 @@ class Checkout(Resource):
             beacon = self.mongo.Beacons.find_one_or_404({'beacon_token': beacon_token})
             if token.user == beacon['seller']:
                 self.mongo.Beacons.update({'_id': beacon['_id']}, {'value': args['value']})
+            return 200
 
     def get(self, beacon_token):
         beacon = self.mongo.Beacons.find_one_or_404({'beacon_token': beacon_token}, {'_id': 0})
