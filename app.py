@@ -10,10 +10,13 @@ from flask import Flask
 from flask_pymongo import PyMongo
 from flask_restful import Api
 
+from flask_cors import CORS
+
 
 
 app = Flask(__name__)
 api = Api(app)
+CORS(app)
 # app.config["MONGO_URI"] = "mongodb://localhost:27017/Visa"
 # app.config["MONGO_URI"] = "mongodb://mo1243_test:7QwnNzA84Pz3DySAI4XW@91.185.184.123:27017/?authSource=mo1243_test&authMechanism=SCRAM-SHA-1"
 app.config["MONGO_URI"] = "mongodb://mo1243_test:7QwnNzA84Pz3DySAI4XW@91.185.184.123:27017/mo1243_test"

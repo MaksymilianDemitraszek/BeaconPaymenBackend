@@ -3,6 +3,7 @@ from flask_restful import reqparse, Resource
 # from common.validators import validate_seller, validate_card
 # from common.token import TokenValidator
 from common.parsers import payment_parser
+
 import requests
 
 
@@ -20,7 +21,8 @@ class Payments(Resource):
             'sellerCard': seller['cards'][0]['cardNumber'],
             'value': beacon['value'],
         }
-        resp = requests.post('localhost:3000', data=payload)
+        resp = requests.post('http://localhost:3000/payment', data=payload) #NOT SURE IT WORKS !!!!
+        print(resp)
         return resp.json(), 200
 
 
